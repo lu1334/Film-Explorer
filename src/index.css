@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+:root {
+  font-family: "Outfit", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e5e7eb;
+  background-color: #090b10;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1b2236 0%, #0b0f1a 45%, #07090f 100%);
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  margin: 1.5rem 0 2.5rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: rgba(7, 12, 20, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px rgba(2, 8, 23, 0.55);
+}
+
+header h1,
+header h2 {
+  margin: 0;
+  font-family: "Oswald", "Outfit", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  color: #f8fafc;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd5f5;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+header nav a:hover {
+  color: #f8fafc;
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+header input[type="search"],
+header input[type="text"] {
+  flex: 1 1 240px;
+  max-width: 360px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+header input[type="search"]::placeholder,
+header input[type="text"]::placeholder {
+  color: rgba(148, 163, 184, 0.8);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+li {
+  background: linear-gradient(165deg, rgba(32, 41, 62, 0.95), rgba(8, 12, 20, 0.95));
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+li:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 20px 45px rgba(2, 8, 23, 0.6);
+}
+
+li > a {
+  display: block;
+  height: 100%;
+}
+
+ul .movie-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(8, 12, 20, 0.2) 0%, rgba(8, 12, 20, 0.9) 100%);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+ul .movie-card__poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  order: 1;
+  display: block;
+}
+
+ul .movie-card__title {
+  font-family: "Oswald", "Outfit", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0.9rem 0.9rem 0.4rem;
+  order: 2;
+  color: #f8fafc;
+}
+
+ul .movie-card__overview,
+ul .movie-card__meta {
+  margin: 0 0.9rem 0.85rem;
+  color: #cbd5f5;
+  font-size: 0.9rem;
+  order: 3;
+}
+
+ul .movie-card__overview {
+  flex: 1;
+  color: #cbd5e1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+ul .movie-card__meta {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #cbd5f5;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  margin: 0 0.5rem 0.85rem 0.9rem;
+}
+
+#root > p {
+  margin: 2rem auto 1.5rem;
+  max-width: 520px;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.movie-card {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 1.75rem;
+  padding: 1.75rem;
+  background: linear-gradient(160deg, rgba(30, 41, 59, 0.95), rgba(3, 7, 18, 0.95));
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 25px 60px rgba(2, 8, 23, 0.55);
+  align-items: start;
+}
+
+.movie-card .movie-card__poster {
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(2, 6, 23, 0.55);
+  order: 0;
+  width: 100%;
+}
+
+.movie-card .movie-card__title {
+  font-size: 1.7rem;
+  margin-top: 0;
+  grid-column: 2;
+  letter-spacing: 0.04em;
+}
+
+.movie-card .movie-card__overview,
+.movie-card .movie-card__meta {
+  font-size: 1rem;
+  color: #d6deee;
+  grid-column: 2;
+}
+
+.movie-card .movie-card__overview {
+  margin-bottom: 1.4rem;
+  line-height: 1.7;
+}
+
+.movie-card .movie-card__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0.75rem 0 0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(2, 132, 199, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #e2f2ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  ul {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  li h2 {
+    font-size: 1rem;
+  }
+
+  .movie-card {
+    margin: 0 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .movie-card .movie-card__title,
+  .movie-card .movie-card__overview,
+  .movie-card .movie-card__meta {
+    grid-column: 1;
+  }
+}
