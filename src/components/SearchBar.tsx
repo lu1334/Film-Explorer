@@ -9,7 +9,9 @@ export const SearchBar = ({ textoMovie, seTtextoMovie }: Prop) => {
     <>
       <input
         type="text"
+        className="search-input"
         value={textoMovie}
+        placeholder="Search"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           seTtextoMovie(e.target.value)
         }

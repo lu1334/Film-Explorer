@@ -95,6 +95,81 @@ header input[type="text"]::placeholder {
   color: rgba(148, 163, 184, 0.8);
 }
 
+.search-panel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 auto 2rem;
+  padding: 0.85rem 1rem;
+  background: rgba(7, 12, 20, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(2, 8, 23, 0.35);
+  flex-wrap: wrap;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1 1 420px;
+}
+
+.search-input {
+  flex: 1 1 240px;
+  min-width: 200px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: rgba(148, 163, 184, 0.8);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.search-submit,
+.search-clear {
+  border: none;
+  color: #f8fafc;
+  font-family: "Oswald", "Outfit", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.85), rgba(37, 99, 235, 0.85));
+  box-shadow: 0 12px 25px rgba(2, 8, 23, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.search-clear {
+  padding: 0.55rem 1rem;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.85), rgba(248, 113, 113, 0.85));
+}
+
+.search-submit:hover,
+.search-clear:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(2, 8, 23, 0.45);
+}
+
+.search-submit:active,
+.search-clear:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
 ul {
   list-style: none;
   padding: 0;

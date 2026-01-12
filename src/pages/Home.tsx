@@ -5,6 +5,7 @@ import { getApi } from "../services/getApi";
 import { getApiSearch } from "../services/getApiSearch";
 import { MovieCard } from "../components/MovieCard";
 import { SearchBar } from "../components/SearchBar";
+import { BtnDelete } from "../components/BtnDelete";
 
 export const Home = () => {
   const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -28,6 +29,22 @@ export const Home = () => {
     };
     getData();
   }, []);
+
+  const handlerDeleteSearch = async ()=>{
+
+     try {
+        const data = await getApi();
+        if (!data) {
+          throw Error(" No data returned from API");
+        }
+        setMovieList(data);
+        setTextoMovie("")
+      } catch (error: any) {
+        setErrorMessage(error.message);
+      } finally {
+        setLoading(false);
+      }
+  }
 
   const handlerSumit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,11 +72,14 @@ export const Home = () => {
       {loading && <p>Loading...</p>}
       {errorMessage && <p>{errorMessage}</p>}
       {
-        <div>
-          <form onSubmit={handlerSumit}>
+        <div className="search-panel">
+          <form className="search-form" onSubmit={handlerSumit}>
             <SearchBar textoMovie={textoMovie} seTtextoMovie={setTextoMovie} />
-            <button type="submit">Send</button>
+            <button className="search-submit" type="submit">
+              Send
+            </button>
           </form>
+          <BtnDelete handlerDeleteSearch={handlerDeleteSearch} />
         </div>
       }
       <ul>
