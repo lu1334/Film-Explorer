@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import type { Movie } from "../types/types";
 import { Link } from "react-router-dom";
 import { getApi } from "../services/getApi";
+import { NavBar } from "../components/NavBar";
 import { getApiSearch } from "../services/getApiSearch";
 import { MovieCard } from "../components/MovieCard";
 import { SearchBar } from "../components/SearchBar";
@@ -69,12 +70,12 @@ export const Home = () => {
 
   return (
     <>
+      <SearchBar textoMovie={textoMovie} seTtextoMovie={setTextoMovie} />
       {loading && <p>Loading...</p>}
       {errorMessage && <p>{errorMessage}</p>}
       {
         <div className="search-panel">
           <form className="search-form" onSubmit={handlerSumit}>
-            <SearchBar textoMovie={textoMovie} seTtextoMovie={setTextoMovie} />
             <button className="search-submit" type="submit">
               Send
             </button>
@@ -85,7 +86,7 @@ export const Home = () => {
       <ul>
         {movieList.map((m) => (
           <li key={m.id}>
-            <Link to={`movie/${m.id}`}>
+            <Link to={`/movie/${m.id}`}>
               <MovieCard movie={m} />
             </Link>
           </li>
