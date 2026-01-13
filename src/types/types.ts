@@ -9,15 +9,14 @@ export interface Movie {
 }
 
 export interface ApiMovie {
-    id: number,
-      title: string,
-      overview: string,
-      poster_path: string,
-      backdrop_path: string,
-      release_date: string,
-      vote_average: number,
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+  backdrop_path: string;
+  release_date: string;
+  vote_average: number;
 }
-
 
 export interface ApiGlobal {
   page: number;
@@ -25,4 +24,3 @@ export interface ApiGlobal {
   total_pages: number;
   total_results: number;
 }
-
