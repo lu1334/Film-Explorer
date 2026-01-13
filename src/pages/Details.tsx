@@ -6,20 +6,14 @@ import { BtnFavorite } from "../components/BtnFavorite";
 import type { Movie } from "../types/types";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useMovieContext } from "../context/MovieContex";
 
 export const Details = () => {
   const { id } = useParams<{ id: string }>();
+  const {favorite,setFavorite}  = useMovieContext()
   const [datosId, setDatosId] = useState<Movie | null>(null);
   const [recomendation, setRecomendation] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
-  const [favorite, setFavorite] = useState<Movie[]>(() => {
-    const res = localStorage.getItem("favorite");
-    return res ? JSON.parse(res) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("favorite", JSON.stringify(favorite));
-  }, [favorite]);
 
   useEffect(() => {
     if (!id) {
@@ -48,18 +42,19 @@ export const Details = () => {
   if (loading) return <p>loading film info...</p>;
   if (!datosId) return <p>we couldn't find that film.</p>;
 
-  const handlerAddFavorite = (id: number) => {
-    const isExist = favorite.find((m) => m.id === id);
+  const handlerAddFavorite = (movie:Movie) => {
+    
+    const isExist = favorite.find((m) => m.id === movie.id);
     if (isExist) {
       alert("ya existe");
       return;
     }
     setFavorite((prev) => [...prev, datosId]);
   };
-
+  
   return (
     <div className="animate-fade-in">
-      <BtnFavorite handlerAddFavorite={handlerAddFavorite} id={datosId.id} />
+      <BtnFavorite handlerAddFavorite={()=>handlerAddFavorite(datosId)} id={datosId.id} />
       <MovieCard movie={datosId} />
       <h2>Similar Movies</h2>
       <ul>

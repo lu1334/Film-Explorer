@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import type { Movie } from "../types/types";
 import { Link } from "react-router-dom";
 import { getApi } from "../services/getApi";
-import { NavBar } from "../components/NavBar";
 import { getApiSearch } from "../services/getApiSearch";
 import { MovieCard } from "../components/MovieCard";
 import { SearchBar } from "../components/SearchBar";

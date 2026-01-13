@@ -6,7 +6,7 @@ export const NavBar = ()=>{
       <nav className="side-nav">
         <ul className="side-nav__list">
           <li>
-            <Link to={"home"}>Home</Link>
+            <Link to={"/"}>Home</Link>
           </li>
           <li>
             <Link to={"favorite"}>Favorite</Link>

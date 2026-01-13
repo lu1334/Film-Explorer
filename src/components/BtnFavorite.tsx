@@ -4,8 +4,8 @@ interface PropFavorite{
 }
 export const BtnFavorite = ({handlerAddFavorite,id}:PropFavorite)=>{
     return(
-        <div>
-            <button onClick={()=>handlerAddFavorite(id)}>Add Favorite</button>
+        <div className="favorite-action">
+            <button className="favorite-action__button" onClick={()=>handlerAddFavorite(id)}>Add Favorite</button>
         </div>
     )
 }
