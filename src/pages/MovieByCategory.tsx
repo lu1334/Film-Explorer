@@ -20,7 +20,7 @@ export const MovieByCategory = () => {
     };
     getDiscoverFetch();
     setLoading(false);
-  }, []);
+  }, [id]);
 
   return (
     <>
