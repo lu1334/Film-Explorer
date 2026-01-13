@@ -12,6 +12,7 @@ export const getGenres = async () => {
     const res:ApiCategoria[] = data.genres.map((m: any) => ({ id: m.id, category: m.name }));
     return res
   } catch (err: any) {
-    return err.message;
+    console.error(err.message);
+    return [];
   }
 };

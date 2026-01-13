@@ -13,13 +13,21 @@ export const MovieByCategory = () => {
   useEffect(() => {
     setLoading(true);
     const getDiscoverFetch = async () => {
-      const response = await getDiscover(Number(id))
-      if (!response) setErrorMessageDiscover("not film found");
-      const data = response;
-      setCategoryList(data);
+      try {
+        const response = await getDiscover(Number(id))
+        if (!Array.isArray(response) || !response.length) {
+          setCategoryList([])
+          setErrorMessageDiscover("No films found")
+          return
+        }
+        setCategoryList(response);
+      } catch (err: any) {
+        setErrorMessageDiscover(err.message)
+      } finally {
+        setLoading(false);
+      }
     };
     getDiscoverFetch();
-    setLoading(false);
   }, [id]);
 
   return (

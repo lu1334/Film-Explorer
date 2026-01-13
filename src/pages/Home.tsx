@@ -55,8 +55,9 @@ export const Home = () => {
     try {
       const dataSearch = await getApiSearch(textoMovie);
 
-      if (!dataSearch) {
-        setErrorMessage("does not return data");
+      if (!dataSearch.length) {
+        setMovieList([]);
+        setErrorMessage("No results found");
       } else {
         setMovieList(dataSearch);
       }

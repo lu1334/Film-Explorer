@@ -19,6 +19,7 @@ export const getDiscover = async (id:number) => {
       voteAverage: m.vote_average,
     }));
   } catch (err: any) {
-    return err.message;
+    console.error(err.message);
+    return [];
   }
 };

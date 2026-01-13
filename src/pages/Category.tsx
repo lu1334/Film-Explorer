@@ -13,9 +13,12 @@ export const Category = ()=>{
         setLoading(true)
         try{
             const res = await getGenres()
-            if(!res)throw new Error("No data returned from API");
-            const data = res
-            setCategory(data)
+            if(!Array.isArray(res) || !res.length){
+              setCategory([])
+              setMessageError("No categories found")
+              return
+            }
+            setCategory(res)
 
         }catch(err:any){
             setMessageError(err.message)

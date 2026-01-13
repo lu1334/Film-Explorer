@@ -5,8 +5,8 @@ export const getApi = async () => {
   const  API_KEY =KEY;
   const URL = apiUrl
 
-  const res = await fetch(`${URL}/movie/popular?api_key=${API_KEY}`);
   try {
+    const res = await fetch(`${URL}/movie/popular?api_key=${API_KEY}`);
     if (!res.ok) {
       throw Error("Failed to fetch data from API" + res.status);
     }
@@ -24,5 +24,6 @@ export const getApi = async () => {
     return result;
   } catch (err: any) {
     console.error(err.message);
+    return [];
   }
 };

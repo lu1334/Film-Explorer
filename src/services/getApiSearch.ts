@@ -32,5 +32,6 @@ export const getApiSearch = async (text: string) => {
     
   } catch (err) {
     console.error(err);
+    return [];
   }
 };

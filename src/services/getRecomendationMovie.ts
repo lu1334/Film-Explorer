@@ -25,5 +25,6 @@ export const getRecomendationMovie = async (id: number) => {
     }));
   } catch (err: any) {
     console.error(err.message);
+    return [];
   }
 };
