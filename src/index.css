@@ -122,6 +122,7 @@ header input[type="text"]::placeholder {
   border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 999px;
   padding: 0.6rem 1rem;
+  padding-right: 3.1rem;
   color: #e2e8f0;
   font-size: 0.95rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -156,6 +157,29 @@ header input[type="text"]::placeholder {
 .search-clear {
   padding: 0.55rem 1rem;
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.85), rgba(248, 113, 113, 0.85));
+}
+
+.search-input-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-input-wrap .search-clear {
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.45rem 0.6rem;
+  min-width: auto;
+  border-radius: 999px;
+  box-shadow: 0 10px 20px rgba(2, 8, 23, 0.35);
+}
+
+.search-input-wrap .search-clear:hover,
+.search-input-wrap .search-clear:active {
+  transform: translateY(-50%);
+  box-shadow: 0 10px 20px rgba(2, 8, 23, 0.35);
 }
 
 .search-submit:hover,

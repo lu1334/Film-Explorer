@@ -12,7 +12,7 @@ export const NavBar = ()=>{
             <Link to={"favorite"}>Favorite</Link>
           </li>
           <li>
-            <Link to={"categori"}>Category</Link>
+            <Link to={"category"}>Category</Link>
           </li>
         </ul>
       </nav>

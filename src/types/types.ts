@@ -24,3 +24,8 @@ export interface ApiGlobal {
   total_pages: number;
   total_results: number;
 }
+
+export interface ApiCategoria {
+  id:number,
+  category:string
+}

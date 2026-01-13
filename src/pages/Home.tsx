@@ -48,7 +48,7 @@ export const Home = () => {
 
   const handlerSumit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    if(!textoMovie)return
     setErrorMessage(null);
     setLoading(true);
 
@@ -69,7 +69,11 @@ export const Home = () => {
 
   return (
     <>
+    <div className="search-input-wrap">
       <SearchBar textoMovie={textoMovie} seTtextoMovie={setTextoMovie} />
+      {textoMovie&&<BtnDelete handlerDeleteSearch={handlerDeleteSearch} />}
+
+    </div>
       {loading && <p>Loading...</p>}
       {errorMessage && <p>{errorMessage}</p>}
       {
@@ -79,7 +83,7 @@ export const Home = () => {
               Send
             </button>
           </form>
-          <BtnDelete handlerDeleteSearch={handlerDeleteSearch} />
+          
         </div>
       }
       <ul>
