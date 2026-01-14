@@ -9,13 +9,30 @@ type containerContext = {
     
 }
 const MovieContext = createContext<containerContext|undefined>(undefined)
+
+const readFavoritesFromStorage = (): Movie[] => {
+    if (typeof window === "undefined") {
+        return []
+    }
+    const raw = localStorage.getItem("favorite")
+    if (!raw || raw === "undefined") {
+        return []
+    }
+    try {
+        const parsed = JSON.parse(raw)
+        return Array.isArray(parsed) ? parsed : []
+    } catch {
+        localStorage.removeItem("favorite")
+        return []
+    }
+}
 export const  ProviderMovieContext = ({children}:{children:React.ReactNode})=>{
 
-     const [favorite,setFavorite] = useState<Movie[]>(()=>{
-        const res = localStorage.getItem("favorite")
-        return res?JSON.parse(res):[]
-    })
+     const [favorite,setFavorite] = useState<Movie[]>(() => readFavoritesFromStorage())
     useEffect(()=>{
+        if (typeof window === "undefined") {
+            return
+        }
         localStorage.setItem("favorite",JSON.stringify(favorite))
     },[favorite])
 
