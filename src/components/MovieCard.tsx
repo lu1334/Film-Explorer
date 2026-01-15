@@ -1,4 +1,5 @@
 import type { Movie } from "../types/types";
+import { BtnFavorite } from "./BtnFavorite";
 
 interface Prop{
     movie: Movie
