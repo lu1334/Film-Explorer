@@ -4,8 +4,11 @@ interface PropBtnDelete{
 
 export const BtnDelete = ( {handlerDeleteSearch}:PropBtnDelete ) => {
   return (
-    <button className="search-clear" onClick={handlerDeleteSearch}>
-      X
-    </button>
+    <>
+      {/* Limpia el texto de busqueda. */}
+      <button className="search-clear" onClick={handlerDeleteSearch}>
+        X
+      </button>
+    </>
   );
 }

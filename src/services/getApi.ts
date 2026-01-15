@@ -6,11 +6,13 @@ export const getApi = async () => {
   const URL = apiUrl
 
   try {
+    // Solicita peliculas populares.
     const res = await fetch(`${URL}/movie/popular?api_key=${API_KEY}`);
     if (!res.ok) {
       throw Error("Failed to fetch data from API" + res.status);
     }
     const dataRes: ApiGlobal = await res.json();
+    // Normaliza la respuesta a la forma interna Movie.
     const result: Movie[] = dataRes.results.map((data: ApiMovie) => ({
       id: data.id,
       title: data.title,

@@ -8,6 +8,7 @@ import App from './App.tsx'
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
   <StrictMode>
+    {/* Providers globales de la app */}
     <ProviderMovieContext>
     <App />
     </ProviderMovieContext>

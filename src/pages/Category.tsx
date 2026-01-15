@@ -4,12 +4,14 @@ import { getGenres } from "../services/getGenres";
 import type { ApiCategoria } from "../types/types";
 
 export const Category = ()=>{
+    // Lista de categorias desde la API.
     const [category,setCategory]= useState<ApiCategoria[]>([])
     const [loading,setLoading]= useState<boolean>(false)
     const [menssageError,setMessageError]= useState<string>("")
     
     useEffect(()=>{
     const getApiCategory = async ()=>{
+        // Solicita categorias y valida respuesta.
         setLoading(true)
         try{
             const res = await getGenres()

@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 export const NavBar = ()=>{
   return (
     <div className="app-shell">
+      {/* Navegacion principal */}
       <nav className="side-nav">
         <ul className="side-nav__list">
           <li>

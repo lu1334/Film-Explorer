@@ -4,6 +4,7 @@
   padding: 2.5rem 1rem 3.5rem;
 }
 
+/* Layout principal con sidebar */
 .app-shell {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -11,6 +12,7 @@
   align-items: start;
 }
 
+/* Navegacion lateral */
 .side-nav {
   position: sticky;
   top: 2rem;
@@ -62,10 +64,12 @@
   background: rgba(15, 23, 42, 0.85);
 }
 
+/* Contenedor de contenido */
 .app-content {
   min-width: 0;
 }
 
+/* Ajustes responsive */
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;

@@ -5,6 +5,7 @@ export const getApiMovieId = async (id: number) => {
   
   const URL = apiUrl
   const API_KEY = KEY;
+  // Consulta detalle de pelicula por id.
   const response = await fetch(`${URL}/movie/${id}?api_key=${API_KEY}`);
   try {
     if (!response.ok) {
@@ -12,6 +13,7 @@ export const getApiMovieId = async (id: number) => {
     }
     const data: any = await response.json();
 
+    // Normaliza la respuesta a Movie.
     const dataResult:Movie = ({
       id: data.id,
       title: data.title,

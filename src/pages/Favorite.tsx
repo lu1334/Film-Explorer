@@ -3,6 +3,7 @@ import { useMovieContext } from "../context/MovieContex";
 
 export const Favorite = () => {
   const { favorite, setFavorite } = useMovieContext();
+  // Elimina una pelicula por id.
   const handlerDeleteFavorite = (id: number) => {
     setFavorite((prev) => prev.filter((f) => f.id !== id));
   };

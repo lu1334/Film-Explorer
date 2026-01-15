@@ -7,6 +7,7 @@ interface Prop {
 export const SearchBar = ({ textoMovie, seTtextoMovie }: Prop) => {
   return (
     <>
+      {/* Campo controlado para texto de busqueda */}
       <input
         type="text"
         className="search-input"

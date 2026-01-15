@@ -7,6 +7,7 @@ export const getApiSearch = async (text: string) => {
   const API_KEY = KEY;
 
   try {
+    // Busca peliculas por texto.
     const response = await fetch(
       `${URl}/search/movie?query=${text}&api_key=${API_KEY}`
     );
@@ -15,8 +16,10 @@ export const getApiSearch = async (text: string) => {
       throw new Error("Failed to fetch data from API" + response.status);
     const data = await response.json();
 
+    // Valida estructura del payload.
     if(!Array.isArray(data.results))throw new Error("no results array in response");
     
+    // Mapea a la forma interna Movie.
     const result: Movie[] = data.results.map((data: ApiMovie) => ({
       id: data.id,
       title: data.title,

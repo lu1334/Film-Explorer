@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Outfit:wght@300;400;500;600;700&display=swap");
 
+/* Reset basico y tipografia global */
 :root {
   font-family: "Outfit", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
@@ -29,6 +30,7 @@ a {
   text-decoration: none;
 }
 
+/* Header principal */
 header {
   position: sticky;
   top: 1rem;
@@ -78,6 +80,7 @@ header nav a:hover {
   border-color: rgba(56, 189, 248, 0.6);
 }
 
+/* Inputs en el header */
 header input[type="search"],
 header input[type="text"] {
   flex: 1 1 240px;
@@ -95,6 +98,7 @@ header input[type="text"]::placeholder {
   color: rgba(148, 163, 184, 0.8);
 }
 
+/* Panel y formulario de busqueda */
 .search-panel {
   display: flex;
   align-items: center;
@@ -138,6 +142,7 @@ header input[type="text"]::placeholder {
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 
+/* Botones de busqueda */
 .search-submit,
 .search-clear {
   border: none;
@@ -194,6 +199,7 @@ header input[type="text"]::placeholder {
   opacity: 0.9;
 }
 
+/* Listado general de peliculas */
 ul {
   list-style: none;
   padding: 0;
@@ -223,6 +229,7 @@ li > a {
   height: 100%;
 }
 
+/* Tarjeta de pelicula en el grid */
 ul .movie-card {
   display: flex;
   flex-direction: column;
@@ -285,6 +292,7 @@ ul .movie-card__meta {
   margin: 0 0.5rem 0.85rem 0.9rem;
 }
 
+/* Lista de favoritos */
 .favorite-list li {
   display: flex;
   flex-direction: column;
@@ -323,6 +331,7 @@ ul .movie-card__meta {
   opacity: 0.9;
 }
 
+/* Mensajes simples */
 #root > p {
   margin: 2rem auto 1.5rem;
   max-width: 520px;
@@ -333,6 +342,7 @@ ul .movie-card__meta {
   border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
+/* Detalle de pelicula */
 .movie-card {
   max-width: 900px;
   margin: 0 auto;
@@ -390,6 +400,7 @@ ul .movie-card__meta {
   font-size: 0.75rem;
 }
 
+/* Accion de favoritos */
 .favorite-action {
   display: flex;
   justify-content: flex-start;
@@ -411,6 +422,21 @@ ul .movie-card__meta {
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
+.favorite-action__button--added {
+  border: none;
+  cursor: pointer;
+  font-family: "Oswald", "Outfit", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  color: #f8fafc;
+  background: rgb(21, 187, 21);
+  box-shadow: 0 16px 35px rgba(2, 8, 23, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
 .favorite-action__button:hover {
   transform: translateY(-2px);
   box-shadow: 0 20px 45px rgba(2, 8, 23, 0.55);
@@ -421,6 +447,7 @@ ul .movie-card__meta {
   opacity: 0.9;
 }
 
+/* Ajustes responsive */
 @media (max-width: 720px) {
   ul {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

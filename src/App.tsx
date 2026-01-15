@@ -11,6 +11,7 @@ function App() {
  
   return ( 
      <Routes>
+      {/* Layout principal con navegacion */}
       <Route element={<NavBar />}>
         <Route path={"/"} element ={<Home/>}/>
          <Route path={"favorite"} element ={<Favorite/>}/>

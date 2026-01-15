@@ -5,6 +5,7 @@ export const getRecomendationMovie = async (id: number) => {
   const URL = apiUrl;
   const API_KEY = KEY;
   try {
+    // Solicita recomendaciones para una pelicula.
     const response = await fetch(
       `${URL}/movie/${id}/recommendations?api_key=${API_KEY}`
     );
@@ -12,6 +13,7 @@ export const getRecomendationMovie = async (id: number) => {
       throw new Error(" Error fetching recommendation movies");
     }
     const data: ApiGlobal = await response.json();
+    // Valida y mapea resultados a Movie.
     if (!Array.isArray(data.results))
       throw new Error(" No recommendation movies found");
     return data.results.map((data:ApiMovie) => ({

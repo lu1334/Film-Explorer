@@ -8,6 +8,7 @@ import { SearchBar } from "../components/SearchBar";
 import { BtnDelete } from "../components/BtnDelete";
 
 export const Home = () => {
+  // Estado principal del listado y busqueda.
   const [movieList, setMovieList] = useState<Movie[]>([]);
   const [textoMovie, setTextoMovie] = useState<string>("");
   const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
@@ -15,6 +16,7 @@ export const Home = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    // Carga la lista inicial de peliculas populares.
     const getData = async () => {
       try {
         const data = await getApi();
@@ -32,6 +34,7 @@ export const Home = () => {
   }, []);
 
   const handlerDeleteSearch = async () => {
+    // Restablece la busqueda y vuelve a la lista inicial.
     try {
       const data = await getApi();
       if (!data) {
@@ -48,6 +51,7 @@ export const Home = () => {
   };
 
   const handlerSumit = async (e: React.FormEvent<HTMLFormElement>) => {
+    // Ejecuta la busqueda cuando se envia el formulario.
     e.preventDefault();
     if (!textoMovie) return;
     setErrorMessage(null);
@@ -73,10 +77,12 @@ export const Home = () => {
   const handleTextoMovieChange: React.Dispatch<
     React.SetStateAction<string>
   > = (value) => {
+    // Actualiza el texto sin activar busqueda automatica.
     setIsSearchActive(false);
     setTextoMovie((prev) => (typeof value === "function" ? value(prev) : value)); 
   };
 
+  // Muestra el boton de submit solo cuando hay texto.
   const showSubmit = textoMovie.trim().length > 0 && !isSearchActive; 
 
   return (
