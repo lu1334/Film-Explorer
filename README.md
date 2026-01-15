@@ -1,7 +1,7 @@
 # Film Explorer
 
 Pequena app para explorar peliculas y guardar favoritas. La hice como estudiante autodidacta para practicar el consumo de datos externos desde una API y reforzar fundamentos de React con TypeScript.
-
+Demo: https://film-explorer-lovat.vercel.app/
 ## Que hace la app
 - Lista peliculas populares desde The Movie Database (TMDB)
 - Permite buscar peliculas por texto
