@@ -10,6 +10,7 @@ import { BtnDelete } from "../components/BtnDelete";
 export const Home = () => {
   const [movieList, setMovieList] = useState<Movie[]>([]);
   const [textoMovie, setTextoMovie] = useState<string>("");
+  const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -30,27 +31,28 @@ export const Home = () => {
     getData();
   }, []);
 
-  const handlerDeleteSearch = async ()=>{
-
-     try {
-        const data = await getApi();
-        if (!data) {
-          throw Error(" No data returned from API");
-        }
-        setMovieList(data);
-        setTextoMovie("")
-      } catch (error: any) {
-        setErrorMessage(error.message);
-      } finally {
-        setLoading(false);
+  const handlerDeleteSearch = async () => {
+    try {
+      const data = await getApi();
+      if (!data) {
+        throw Error(" No data returned from API");
       }
-  }
+      setMovieList(data);
+      setTextoMovie("");
+      setIsSearchActive(false);
+    } catch (error: any) {
+      setErrorMessage(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handlerSumit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(!textoMovie)return
+    if (!textoMovie) return;
     setErrorMessage(null);
     setLoading(true);
+    setIsSearchActive(true);
 
     try {
       const dataSearch = await getApiSearch(textoMovie);
@@ -68,23 +70,35 @@ export const Home = () => {
     }
   };
 
+  const handleTextoMovieChange: React.Dispatch<
+    React.SetStateAction<string>
+  > = (value) => {
+    setIsSearchActive(false);
+    setTextoMovie((prev) => (typeof value === "function" ? value(prev) : value)); 
+  };
+
+  const showSubmit = textoMovie.trim().length > 0 && !isSearchActive; 
+
   return (
     <>
-    <div className="search-input-wrap">
-      <SearchBar textoMovie={textoMovie} seTtextoMovie={setTextoMovie} />
-      {textoMovie&&<BtnDelete handlerDeleteSearch={handlerDeleteSearch} />}
-
-    </div>
+      <div className="search-input-wrap">
+        <SearchBar
+          textoMovie={textoMovie}
+          seTtextoMovie={handleTextoMovieChange} 
+        />
+        {textoMovie && <BtnDelete handlerDeleteSearch={handlerDeleteSearch} />}
+      </div>
       {loading && <p>Loading...</p>}
       {errorMessage && <p>{errorMessage}</p>}
       {
         <div className="search-panel">
-          <form className="search-form" onSubmit={handlerSumit}>
-            <button className="search-submit" type="submit">
-              Send
-            </button>
-          </form>
-          
+          {showSubmit && (
+            <form className="search-form" onSubmit={handlerSumit}>
+              <button className="search-submit" type="submit">
+                Send
+              </button>
+            </form>
+          )}
         </div>
       }
       <ul>
